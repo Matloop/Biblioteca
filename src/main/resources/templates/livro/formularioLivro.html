@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- ... -->
+</head>
+<body>
+<h1>Cadastro de livro</h1>
+<<form th:action="@{/livros/salvar}" th:object="${livro}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="titulo">Título do livro</label>
+    <input type="text" id="titulo" th:field="*{titulo}" required />
+
+    <label for="autor">Nome do autor</label>
+    <input type="text" id="autor" th:field="*{autor}" required />
+
+    <label for="anoPublicacao">Ano de publicação</label>
+    <input type="text" id="anoPublicacao" th:field="*{anoPublicacao}" required />
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

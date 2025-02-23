@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar usuário</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Cadastro de livro</h1>
+<<form th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="nome">Nome do usuário</label>
+    <input type="text" id="nome" th:field="*{nome}" required />
+
+    <label for="autor">Numero da matrícula</label>
+    <input type="text" id="autor" th:field="*{matricula}" required />
+
+    <label for="tipoUsuario">Tipo de usuário:</label>
+    <input type="text" id="tipoUsuario" th:field="*{tipoUsuario}" required />
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

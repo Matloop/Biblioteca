@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Cadastro de livro</h1>
+<form th:action="@{/emprestimos/salvar}" th:object="${emprestimo}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <!-- Seleção de Livro (Dropdown) -->
+    <div>
+        <label for="livro">Livro:</label>
+        <select id="livro" th:field="*{livro.id}">
+            <option value="">Selecione um livro</option>
+            <option th:each="livro : ${livros}"
+                    th:value="${livro.id}"
+                    th:text="${livro.titulo}"></option>
+        </select>
+    </div>
+
+    <!-- Seleção de Usuário (Dropdown) -->
+    <div>
+        <label for="usuario">Usuário:</label>
+        <select id="usuario" th:field="*{usuario.id}">
+            <option value="">Selecione um usuário</option>
+            <option th:each="usuario : ${usuarios}"
+                    th:value="${usuario.id}"
+                    th:text="${usuario.nome}"></option>
+        </select>
+    </div>
+
+    <!-- Data de Devolução -->
+    <div>
+        <label for="dataDevolucao">Data de Devolução:</label>
+        <input type="date" id="dataDevolucao" th:field="*{dataDevolucao}" required />
+    </div>
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

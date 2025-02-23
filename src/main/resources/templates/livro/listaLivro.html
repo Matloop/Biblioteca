@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>Lista de livros</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Autor</th>
+        <th>Título</th>
+        <th>Ano de publicação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="livro : ${livros}">
+        <td th:text="${livro.getId()} ?: 'ID não informado'"></td>
+        <td th:text="${livro.getAutor()} ?: 'Título não informado'"></td>
+        <td th:text="${livro.getTitulo()} ?: 'Título não informado'"></td>
+        <td th:text="${livro.getAnoPublicacao()} ?: 'Ano não informado'"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

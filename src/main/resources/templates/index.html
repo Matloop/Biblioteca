@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Senai</title>
+    <style>
+        /* Estilo básico para os botões */
+        .botao {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .botao:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Bem-vindo à Biblioteca Senai</h1>
+
+<!-- Links para as páginas de empréstimos e livros -->
+<a th:href="@{/emprestimos/mostrar}" class="botao">Ver empréstimos</a>
+<a th:href="@{/livros/mostrar}" class="botao">Ver livros</a>
+<a th:href="@{/usuarios/mostrar}" class="botao">Ver usuários</a>
+<a th:href="@{/emprestimos/salvar}" class="botao">Fazer empréstimo</a>
+<a th:href="@{/usuarios/salvar}" class="botao">Cadastrar usuário</a>
+<a th:href="@{/livros/salvar}" class="botao">Cadastrar livro</a>
+
+</body>
+</html>

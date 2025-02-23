@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de usuários</title>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de usuários</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Tipo de usuário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usuario : ${usuarios}">
+                <td th:text="${usuario.id}"></td>
+                <td th:text="${usuario.nome}"></td>
+                <td th:text="${usuario.matricula}"></td>
+                <td th:text="${usuario.tipoUsuario}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/usuarios/formulario}">Adicionar Novo Usuário</a>
+</body>
+</html>
