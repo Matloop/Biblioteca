@@ -1,33 +1,38 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h2>Lista de livros</h2>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Autor</th>
-        <th>Título</th>
-        <th>Ano de publicação</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="livro : ${livros}">
-        <td th:text="${livro.getId()} ?: 'ID não informado'"></td>
-        <td th:text="${livro.getAutor()} ?: 'Título não informado'"></td>
-        <td th:text="${livro.getTitulo()} ?: 'Título não informado'"></td>
-        <td th:text="${livro.getAnoPublicacao()} ?: 'Ano não informado'"></td>
-    </tr>
-    </tbody>
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Livros</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Autor</th>
+            <th>Título</th>
+            <th>Ano de publicação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="livro : ${livros}">
+            <td th:text="${livro.getId()} ?: 'ID não informado'"></td>
+            <td th:text="${livro.getAutor()} ?: 'Autor não informado'"></td>
+            <td th:text="${livro.getTitulo()} ?: 'Título não informado'"></td>
+            <td th:text="${livro.getAnoPublicacao()} ?: 'Ano não informado'"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="http://localhost:8080/" class="btn btn-secondary">Voltar</a>
+</div>
 
-</table>
-<a href="http://localhost:8080/">Voltar</a>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

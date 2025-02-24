@@ -2,28 +2,37 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de usuários</title>
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1>Lista de usuários</h1>
-    <table>
+<div class="container mt-5">
+    <h1 class="mb-4">Lista de Usuários</h1>
+    <table class="table table-bordered">
         <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Matrícula</th>
-                <th>Tipo de usuário</th>
-            </tr>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Tipo de usuário</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="usuario : ${usuarios}">
-                <td th:text="${usuario.id}"></td>
-                <td th:text="${usuario.nome}"></td>
-                <td th:text="${usuario.matricula}"></td>
-                <td th:text="${usuario.tipoUsuario}"></td>
-            </tr>
+        <tr th:each="usuario : ${usuarios}">
+            <td th:text="${usuario.id}"></td>
+            <td th:text="${usuario.nome}"></td>
+            <td th:text="${usuario.matricula}"></td>
+            <td th:text="${usuario.tipoUsuario}"></td>
+        </tr>
         </tbody>
     </table>
-    <a href="http://localhost:8080/">Voltar</a>
+    <a href="http://localhost:8080/" class="btn btn-secondary">Voltar</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

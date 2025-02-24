@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Biblioteca Senai</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Se preferir, mantenha ou adapte seu CSS customizado -->
     <style>
-        /* Estilo básico para os botões */
+        /* Exemplo de estilo customizado para botões, se desejar */
         .botao {
-            display: inline-block;
-            padding: 10px 20px;
             margin: 10px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .botao:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-<h1>Bem-vindo à Biblioteca Senai</h1>
+<div class="container mt-5 text-center">
+    <h1>Bem-vindo à Biblioteca Senai</h1>
+    <div class="mt-4">
+        <a th:href="@{/emprestimos/mostrar}" class="btn btn-primary botao">Ver empréstimos</a>
+        <a th:href="@{/livros/mostrar}" class="btn btn-primary botao">Ver livros</a>
+        <a th:href="@{/usuarios/mostrar}" class="btn btn-primary botao">Ver usuários</a>
+        <a th:href="@{/emprestimos/salvar}" class="btn btn-success botao">Fazer empréstimo</a>
+        <a th:href="@{/usuarios/salvar}" class="btn btn-success botao">Cadastrar usuário</a>
+        <a th:href="@{/livros/salvar}" class="btn btn-success botao">Cadastrar livro</a>
+    </div>
+</div>
 
-<!-- Links para as páginas de empréstimos e livros -->
-<a th:href="@{/emprestimos/mostrar}" class="botao">Ver empréstimos</a>
-<a th:href="@{/livros/mostrar}" class="botao">Ver livros</a>
-<a th:href="@{/usuarios/mostrar}" class="botao">Ver usuários</a>
-<a th:href="@{/emprestimos/salvar}" class="botao">Fazer empréstimo</a>
-<a th:href="@{/usuarios/salvar}" class="botao">Cadastrar usuário</a>
-<a th:href="@{/livros/salvar}" class="botao">Cadastrar livro</a>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

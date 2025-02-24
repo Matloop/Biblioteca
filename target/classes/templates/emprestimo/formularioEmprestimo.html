@@ -1,46 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Empréstimo</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>Fazer empréstimo</h1>
-<form th:action="@{/emprestimos/salvar}" th:object="${emprestimo}" method="post">
-    <input type="hidden" th:field="*{id}" />
+<div class="container mt-5">
+    <h1 class="mb-4">Fazer Empréstimo</h1>
+    <form th:action="@{/emprestimos/salvar}" th:object="${emprestimo}" method="post">
+        <input type="hidden" th:field="*{id}" />
 
-    <!-- Seleção de Livro (Dropdown) -->
-    <div>
-        <label for="livro">Livro:</label>
-        <select id="livro" th:field="*{livro.id}">
-            <option value="">Selecione um livro</option>
-            <option th:each="livro : ${livros}"
-                    th:value="${livro.id}"
-                    th:text="${livro.titulo}"></option>
-        </select>
-    </div>
+        <!-- Seleção de Livro -->
+        <div class="form-group">
+            <label for="livro">Livro:</label>
+            <select id="livro" th:field="*{livro.id}" class="form-control">
+                <option value="">Selecione um livro</option>
+                <option th:each="livro : ${livros}"
+                        th:value="${livro.id}"
+                        th:text="${livro.titulo}"></option>
+            </select>
+        </div>
 
-    <!-- Seleção de Usuário (Dropdown) -->
-    <div>
-        <label for="usuario">Usuário:</label>
-        <select id="usuario" th:field="*{usuario.id}">
-            <option value="">Selecione um usuário</option>
-            <option th:each="usuario : ${usuarios}"
-                    th:value="${usuario.id}"
-                    th:text="${usuario.nome}"></option>
-        </select>
-    </div>
+        <!-- Seleção de Usuário -->
+        <div class="form-group">
+            <label for="usuario">Usuário:</label>
+            <select id="usuario" th:field="*{usuario.id}" class="form-control">
+                <option value="">Selecione um usuário</option>
+                <option th:each="usuario : ${usuarios}"
+                        th:value="${usuario.id}"
+                        th:text="${usuario.nome}"></option>
+            </select>
+        </div>
 
-    <!-- Data de Devolução -->
-    <div>
-        <label for="dataDevolucao">Data de Devolução:</label>
-        <input type="date" id="dataDevolucao" th:field="*{dataDevolucao}" required />
-    </div>
+        <!-- Data de Devolução -->
+        <div class="form-group">
+            <label for="dataDevolucao">Data de Devolução:</label>
+            <input type="date" id="dataDevolucao" th:field="*{dataDevolucao}" class="form-control" required />
+        </div>
 
-    <button type="submit">Salvar</button>
-</form>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS e dependências -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

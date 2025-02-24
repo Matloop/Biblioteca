@@ -1,23 +1,39 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>Cadastro de livro</h1>
-<form th:action="@{/livros/salvar}" th:object="${livro}" method="post">
-    <input type="hidden" th:field="*{id}" />
+<div class="container mt-5">
+    <h1 class="mb-4">Cadastro de Livro</h1>
+    <form th:action="@{/livros/salvar}" th:object="${livro}" method="post">
+        <input type="hidden" th:field="*{id}" />
 
-    <label for="titulo">Título do livro</label>
-    <input type="text" id="titulo" th:field="*{titulo}" required />
+        <div class="form-group">
+            <label for="titulo">Título do livro</label>
+            <input type="text" id="titulo" th:field="*{titulo}" class="form-control" required />
+        </div>
 
-    <label for="autor">Nome do autor</label>
-    <input type="text" id="autor" th:field="*{autor}" required />
+        <div class="form-group">
+            <label for="autor">Nome do autor</label>
+            <input type="text" id="autor" th:field="*{autor}" class="form-control" required />
+        </div>
 
-    <label for="anoPublicacao">Ano de publicação</label>
-    <input type="date" id="anoPublicacao" th:field="*{anoPublicacao}" required />
+        <div class="form-group">
+            <label for="anoPublicacao">Ano de publicação</label>
+            <input type="date" id="anoPublicacao" th:field="*{anoPublicacao}" class="form-control" required />
+        </div>
 
-    <button type="submit">Salvar</button>
-</form>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
