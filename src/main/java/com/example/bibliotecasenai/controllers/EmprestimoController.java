@@ -32,33 +32,6 @@ public class EmprestimoController {
         this.livroService = livroService;
     }
 
-    @PostMapping
-    public ResponseEntity<Emprestimo> postEmprestimo(@RequestBody Emprestimo emprestimo) {
-        Emprestimo salvarEmprestimo = emprestimoService.fazerEmprestimo(emprestimo);
-        return new ResponseEntity<>(salvarEmprestimo, HttpStatus.CREATED);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Emprestimo>> getEmprestimos() {
-        List<Emprestimo> emprestimos =  emprestimoService.listarEmprestimos();
-        return new ResponseEntity<>(emprestimos, HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Emprestimo> getEmprestimo(@PathVariable Long id) {
-        Optional<Emprestimo> emprestimo = emprestimoService.buscarEmprestimoPorId(id);
-        return emprestimo.map(emprestimo1 -> new ResponseEntity<>(emprestimo1, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Emprestimo> atualizarEmprestimo(@PathVariable Long id, @RequestBody Emprestimo emprestimo) {
-        Emprestimo emprestimoExistente = emprestimoService.atualizarEmprestimo(emprestimo);
-        return emprestimoExistente != null ? new ResponseEntity<>(emprestimoExistente, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-    }
-
     @GetMapping("/mostrar")
     public String mostrarEmprestimos(Model model) {
         // Obtém a lista de empréstimos do serviço

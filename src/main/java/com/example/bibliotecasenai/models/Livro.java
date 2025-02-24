@@ -3,12 +3,15 @@ package com.example.bibliotecasenai.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDate;
 
 @Entity
 public class Livro {
     private String titulo;
     private String autor;
-    private String anoPublicacao;
+    private LocalDate anoPublicacao;
     @Id
     @GeneratedValue
     private Long id;
@@ -29,11 +32,11 @@ public class Livro {
         this.autor = autor;
     }
 
-    public String getAnoPublicacao() {
+    public LocalDate getAnoPublicacao() {
         return anoPublicacao;
     }
 
-    public void setAnoPublicacao(String anoPublicacao) {
+    public void setAnoPublicacao(LocalDate anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 

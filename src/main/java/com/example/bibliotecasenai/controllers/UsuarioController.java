@@ -25,30 +25,6 @@ public class UsuarioController {
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
-    @PostMapping
-    public ResponseEntity<Usuario> postUsuario(@RequestBody Usuario usuario) {
-        Usuario salvarUsuario = usuarioService.salvarUsuario(usuario);
-        return new ResponseEntity<>(salvarUsuario, HttpStatus.CREATED);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Usuario>> findAll() {
-        List<Usuario> usuarios = usuarioService.findAll();
-        return new ResponseEntity<>(usuarios, HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Usuario> findById(@PathVariable Long id) {
-        Optional<Usuario> usuario = usuarioService.findById(id);
-        return usuario.map(usuario1 -> new ResponseEntity<>(usuario1, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Usuario> putUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        Usuario usuarioExistente = usuarioService.atualizarUsuario(usuario);
-        return usuarioExistente != null ? new ResponseEntity<>(usuarioExistente, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
 
     @GetMapping("/mostrar")
     public String mostrarUsuarios(Model model) {
@@ -69,7 +45,7 @@ public class UsuarioController {
             RedirectAttributes redirectAttributes
     ) {
         if (result.hasErrors()) {
-            return "livro/formularioLivro"; // Volta ao formulário em caso de erro
+            return "livro/formularioUsuario"; // Volta ao formulário em caso de erro
         }
         usuarioService.salvarUsuario(usuario);
         redirectAttributes.addFlashAttribute("mensagem", "Usuario salvo!");

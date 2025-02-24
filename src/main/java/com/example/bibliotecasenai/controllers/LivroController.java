@@ -27,32 +27,6 @@ public class LivroController {
         this.livroService = livroService;
     }
 
-    @PostMapping
-    public ResponseEntity<Livro> addLivro(@RequestBody Livro livro) {
-        Livro salvarLivro = livroService.salvarLivro(livro);
-        return new ResponseEntity<>(salvarLivro, HttpStatus.CREATED);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Livro>> getAllLivros() {
-        List<Livro> livros = livroService.findAll();
-        return new ResponseEntity<>(livros, HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Livro>> getLivroById(@PathVariable Long id) {
-        Optional<Livro> livro = livroService.findById(id);
-        return livro.map(livro1 -> new ResponseEntity<>(livro, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Livro> updateLivro(@PathVariable Long id, @RequestBody Livro livro) {
-        Livro livroExistente = livroService.atualizarLivro(livro);
-        return livroExistente != null ? new ResponseEntity<>(livroExistente, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-
-    }
 
     @GetMapping("/mostrar")
     public String mostrarLivros(Model model) {
